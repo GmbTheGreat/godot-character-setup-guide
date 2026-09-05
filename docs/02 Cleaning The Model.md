@@ -485,7 +485,7 @@ Repeat this for each character mesh object.
 
 <img width="344" height="466" alt="image" src="https://github.com/user-attachments/assets/d3601dcd-219b-4c46-be3d-30f8a4747c0a" />
 
-<br>
+<br><br>
 
 > [!IMPORTANT]
 > We are removing the old vertex groups because this tutorial is rebuilding the character's rig from scratch with Mixamo.
@@ -510,7 +510,7 @@ Your character should now be:
 
 <img width="344" height="466" alt="image" src="https://github.com/user-attachments/assets/d3601dcd-219b-4c46-be3d-30f8a4747c0a" />
 
-<br><br>
+<br>
 
 > [!TIP]
 > **Take a breath. You're done with Blender cleanup.**
