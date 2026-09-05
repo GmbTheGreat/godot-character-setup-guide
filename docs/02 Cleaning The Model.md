@@ -523,6 +523,33 @@ Your character should now be:
 
 <br>
 
+## 🎨 Keep Your Character Textures Safe
+
+If your character came from a third-party website, it may include texture files such as:
+
+- Base Color / Albedo
+- Normal
+- Roughness
+- Metallic
+- Other PBR textures
+
+Before sending the character to Mixamo, open the **Shading** workspace and make sure you have all the texture images saved in a separate folder.
+
+<br>
+
+> [!IMPORTANT]
+> **Keep the original texture files!**
+>
+> UV mapping belongs to the mesh, but your texture images and complete material setup may not come back exactly as they were after the Mixamo workflow.
+>
+> Keeping a backup of the original textures makes it easy to reconnect them to the rigged character later.
+
+<br>
+
+**Keep your textures safe → Rig with Mixamo → Reconnect the materials later.**
+
+<br>
+
 # 12. 📦 Export the Character for Mixamo
 
 Our character is clean.
