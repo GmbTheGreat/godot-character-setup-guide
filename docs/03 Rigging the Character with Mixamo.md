@@ -188,3 +188,9 @@ Set:
 Leave the other options as they are, then click **Download**.
 
 Your rigged character is now ready to bring into Blender.
+
+<br>
+
+> [!TIP]
+> **Don't close Mixamo yet!** We'll need it again very soon to download animations for our character.
+
