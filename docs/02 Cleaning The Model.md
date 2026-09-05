@@ -508,9 +508,11 @@ Your character should now be:
 - 🏷️ Properly organized and named
 - 🎨 Easy to inspect in Blender
 
+<br><br>
+
 <img width="344" height="466" alt="image" src="https://github.com/user-attachments/assets/d3601dcd-219b-4c46-be3d-30f8a4747c0a" />
 
-<br>
+<br><br>
 
 > [!TIP]
 > **Take a breath. You're done with Blender cleanup.**
@@ -521,18 +523,68 @@ Your character should now be:
 
 <br>
 
-## 🚀 Next Step
+# 12. 📦 Export the Character for Mixamo
 
-The character is clean.
+Our character is clean.
 
-Now it's time to give it a skeleton.
+Now we need to send it to **Mixamo**.
 
-**Next:** [Rigging the Character with Mixamo](03-rigging-with-mixamo.md)
+Go to:
+
+**File → Export → FBX (.fbx)**
+
+Blender supports several export formats, but for this workflow, choose **FBX**.
+
+<img width="251" height="489" alt="image" src="https://github.com/user-attachments/assets/d7736997-56eb-4123-ba56-8d5740779d44" />
+
+<br><br>
+
+<details>
+<summary>💡 Why are we using FBX?</summary>
+
+**FBX** is a widely used 3D interchange format, especially for **characters, skeletons, animations, and game engines**.
+
+It is a good fit for this workflow because we are moving a character between different tools:
+
+**Blender → Mixamo → Godot**
+
+FBX is commonly supported across this type of pipeline and can carry the character mesh and, later, rigging and animation data.
+
+But there is another important reason:
+
+### 🎯 Mixamo's supported upload formats
+
+When you upload a character to Mixamo, the upload options are limited compared with Blender's many export formats.
+
+Mixamo mainly gives you only a small number of supported character formats, including **FBX**.
+
+So instead of choosing a format that Blender supports but Mixamo doesn't, we use **FBX** as the safe and practical choice for this workflow.
+
+In other words:
+
+> **Blender gives us many doors. Mixamo only opens a few of them. FBX is one of the doors Mixamo expects us to use.**
+
+</details>
 
 <br>
 
-<div align="center">
+> [!TIP]
+> **Keep the original Blender file!**
+>
+> Exporting an FBX does not replace your `.blend` file.
+>
+> Keep the Blender project safely saved so you can come back and make changes later.
 
-**Character Model → 🧹 Cleanup → 🦴 Rig → 🎬 Animation → 🎮 Godot**
+<br>
 
-</div>
+## 🚀 Ready for Mixamo
+
+The character is now:
+
+- 🧹 Cleaned
+- 🏷️ Organized
+- 🦴 Free from the old armature
+- 🔧 Free from the old rigging setup
+- 📦 Exported as FBX
+
+**Next stop: Mixamo.**
