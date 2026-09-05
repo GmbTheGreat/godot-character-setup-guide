@@ -524,6 +524,9 @@ Your character should now be:
 <br>
 
 ## 🎨 Keep Your Character Textures Safe
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/74a3f768-b22c-4070-bb39-abf055a61cab" />
+
+<br><br>
 
 If your character came from a third-party website, it may include texture files such as:
 
