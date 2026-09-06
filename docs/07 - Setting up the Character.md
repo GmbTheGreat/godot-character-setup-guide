@@ -279,7 +279,7 @@ Now select the `SpringArm3D` node.
 In the **Inspector**, find the **Spring Length** property and set it to:
 
 ```text
-1.8
+3.0
 ```
 
 <br>
@@ -290,12 +290,12 @@ In the **Inspector**, find the **Spring Length** property and set it to:
 
 This controls the distance between the `CameraPivot` and the camera when there is no obstruction.
 
-With a value of `1.8`, our camera will sit relatively close to the character.
+With a value of `3.0`, our camera will sit relatively close to the character.
 
 <br>
 
 > [!NOTE]
-> The exact camera distance is a design choice. We are using `1.8` here because it matches the setup used in this character pipeline. You can change it later if your character or desired camera style requires a different distance.
+> The exact camera distance is a design choice. We are using `3.0` here because it matches the setup used in this character pipeline. You can change it later if your character or desired camera style requires a different distance.
 
 <br>
 
@@ -353,4 +353,140 @@ Player
 
 The character model gives us the visuals, the collision shape gives the player a physical body, and the camera hierarchy gives us a clean foundation for our third-person view.
 
+<br><br>
 
+## Adding the Camera Pivot Script
+
+Now that our camera hierarchy is ready, let's give our `CameraPivot` the script that will control its camera behavior.
+
+Select the `CameraPivot` node and attach a new script to it.
+
+Name the script:
+
+```
+camera_pivot.gd
+````
+
+Here is the script we will use:
+
+**[Camera Pivot Script](#)**
+
+<br>
+
+> [!NOTE]
+> The script is attached to the **`CameraPivot`** node because this node is responsible for controlling the camera's rotation and movement. The `SpringArm3D` and `Camera3D` remain as children and follow the pivot automatically.
+
+<br>
+
+---
+
+## Testing the Camera
+
+Now let's test what we have built so far.
+
+<br>
+
+> [!IMPORTANT]
+> To test the character and camera properly, make sure you create a **separate game scene**. Our `Player.tscn` is the character scene, while the game scene is the actual world where we place and test our player.
+
+<br>
+
+Create a new game scene and then drag our:
+
+```text
+Player.tscn
+```
+
+into the scene.
+
+Once the `Player` has been added to the game scene, set this scene as the **Main Scene** of the project.
+
+Now press **Play**.
+
+You should see your character from the third-person camera, and the camera should smoothly follow and move around the character.
+
+<br>
+
+<img width="1160" height="724" alt="image" src="https://github.com/user-attachments/assets/b72782da-24d9-42b2-bca0-d168655a2730" />
+
+<br><br>
+
+> [!TIP]
+> If the camera doesn't behave as expected, first check that the `camera_pivot.gd` script is attached to the correct `CameraPivot` node and that your camera hierarchy is still:
+>
+> ```text
+> CameraPivot
+> └── SpringArm3D
+>     └── Camera3D
+> ```
+>
+> Also make sure the `Camera3D` is active in the scene.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+Now let's add some movement mechanics to our character through a script.
+
+Select the CharacterBody3D node, which is the root node of our Player scene, and attach a new script to it.
+
+<br>
+
+<img width="485" height="496" alt="image" src="https://github.com/user-attachments/assets/4e5794f1-1c78-4a87-9993-08be07a3631a" />
+
+<br><br>
+
+When you create the script, Godot will provide you with a basic CharacterBody3D script template by default. For now, you can simply use this default template.
+
+Click Create, and the basic movement mechanics will be added to our character. Now you can go back to your game scene and press Play to test the character.
+
+You should be able to move the character around the scene.
+
+<br>
+
+> [!IMPORTANT]
+> Before testing, make sure that in the movement code inside the if direction: section, you add a minus sign (-) before direction.z and direction.x when multiplying them by speed.
+> 
+> Otherwise, the movement direction will be reversed.
+> 
+> For example, the movement should use:
+> 
+> velocity.z = -direction.z * speed
+> 
+> velocity.x = -direction.x * speed
+
+<br>
+
+> [!NOTE]
+> The default CharacterBody3D template uses Godot's default input actions, which are already available for basic testing. These include the arrow keys for movement and Space for jumping.
+> 
+> This is useful for testing our character quickly without creating an input system from scratch.
+> 
+> If you want to use your own controls, you can create custom input actions from:
+> 
+> Project → Project Settings → Input Map
+> 
+> Add your own input action names there, then replace the corresponding input names in the character script.
+> 
+> And that's it! Our character now has basic movement mechanics and can be tested inside the game scene.
