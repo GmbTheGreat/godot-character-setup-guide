@@ -422,29 +422,6 @@ You should see your character from the third-person camera, and the camera shoul
 >
 > Also make sure the `Camera3D` is active in the scene.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 
 Now let's add some movement mechanics to our character through a script.
@@ -490,3 +467,32 @@ You should be able to move the character around the scene.
 > Add your own input action names there, then replace the corresponding input names in the character script.
 > 
 > And that's it! Our character now has basic movement mechanics and can be tested inside the game scene.
+
+<br><br>
+
+Apart from the setup we have completed above, this v01 Basic Character Mechanics script gives our character a simple but functional gameplay foundation.
+
+The mechanics included in this version are:
+
+- Basic character movement using the default Godot directional input actions.
+- Camera-relative movement, so the character moves according to the direction of the camera.
+- Character rotation, smoothly turning the character toward the direction it is moving.
+- Gravity, so the character naturally falls when it is not standing on the ground.
+- Jumping, using the default ui_accept input action.
+- Ground detection, preventing the character from jumping while already in the air.
+- Smooth stopping, gradually reducing horizontal velocity when there is no movement input.
+- CharacterBody3D movement, using move_and_slide() to handle the character's actual movement and collision with the environment.
+
+<br>
+
+> [Character Control Script](HyperLink)
+
+<br>
+
+> [!TIP]
+> This is our v01 Basic Character Mechanics setup. If you don't find the character script provided in the Character Setup Template suitable for your project, you can use this version as a simple starting point and build > your own mechanics on top of it.
+
+It gives you a clean foundation for movement, jumping, gravity, camera-relative controls, and basic character rotation without introducing the animation system yet.
+
+This keeps the current chapter focused on the basic playable character mechanics. The animation system can be built separately in the next part.
+
