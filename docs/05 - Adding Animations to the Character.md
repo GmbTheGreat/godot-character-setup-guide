@@ -414,3 +414,7 @@ And if you check the Outliner, you can see the animation setup inside the armatu
 > **That's it!**
 >
 > We now have one clean character, one main armature, and multiple animations ready for the next stage.
+
+<br>
+
+> Now we can export this in glb format with proper name `HeroCharacterModel.glb`
