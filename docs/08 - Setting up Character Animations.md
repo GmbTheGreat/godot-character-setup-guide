@@ -45,10 +45,6 @@ That's where `AnimationTree` comes in.
 
 <br>
 
-<img width="185" height="69" alt="image" src="https://github.com/user-attachments/assets/b536a456-f4e0-47b8-993a-2bf713e47d15" />
-
-<br><br>
-
 <details>
 <summary>💡 What is AnimationTree?</summary>
 
@@ -331,3 +327,94 @@ If you want to explore the complete system, the official Godot documentation is 
 
 [1]: https://docs.godotengine.org/en/stable/tutorials/animation/animation_tree.html?utm_source=chatgpt.com "Using AnimationTree — Godot Engine (stable) documentation in English"
 [2]: https://docs.godotengine.org/en/latest/tutorials/animation/animation_tree.html?utm_source=chatgpt.com "Using AnimationTree — Godot Engine (latest) documentation in English"
+
+
+And very last setup `AnimationTree` node properties.
+
+<br>
+
+<img width="280" height="136" alt="image" src="https://github.com/user-attachments/assets/4e2fec2d-c193-4c7c-b6b4-391748f8666e" />
+
+<br><br>
+
+## ⚙️ Connecting the AnimationTree
+
+Before we start adding animation states, we need to tell the **AnimationTree** which character and animation player it should work with. 
+There are two important properties we need to set:
+
+* **Advance Expression** → our `CharacterBody3D` root
+* **Anim Player** → the `AnimationPlayer` that came with our character model
+
+### 1. Set the Advance Expression
+
+Select the **AnimationTree** node. 
+In the Inspector, find **Advance Expression** and set it to the **root `CharacterBody3D`** of our character. 
+This gives the AnimationTree access to our character's main scene logic, which we will use later when controlling animation transitions.
+
+<br>
+
+> [!NOTE]
+> The exact purpose of the Advance Expression becomes more useful when we start creating automatic State Machine transitions. For now, we are simply connecting it to our character root.
+
+<br>
+
+### 2. Make the Character Model Editable
+
+You might notice that we don't have an `AnimationPlayer` directly available in our main character scene. 
+That's because our `HeroCharacterModel.glb` already contains its own **AnimationPlayer**. 
+We don't need to create another one. 
+Instead, make the imported model editable inside our character scene.
+
+Right-click on:
+
+**`HeroCharacterModel` → Editable Children**
+
+Now the contents of the imported `.glb` become accessible in our current scene. 
+You should now be able to expand `HeroCharacterModel` and see its internal nodes, including the **AnimationPlayer**. 
+Your structure will look something like:
+
+<br>
+
+<img width="285" height="393" alt="image" src="https://github.com/user-attachments/assets/43bef402-8e0b-44bb-b164-9e31383ba830" />
+
+<br><br>
+
+<details>
+<summary>💡 Why don't we add another AnimationPlayer?</summary>
+
+Our imported character already contains an `AnimationPlayer` with the animations we prepared earlier.
+
+Creating another one would be unnecessary and could make the setup more confusing.
+
+We simply expose the existing `AnimationPlayer` by enabling **Editable Children** on `HeroCharacterModel`.
+
+This lets our `AnimationTree` use the animations that already belong to our character.
+
+</details>
+
+<br>
+
+### 3. Set the Anim Player
+
+Now select the **AnimationTree** again. 
+In the Inspector, find: 
+**Anim Player** 
+
+Assign the `AnimationPlayer` that is inside: 
+**`HeroCharacterModel`**
+
+Once this is assigned, the AnimationTree knows **where our character's animations are stored**.
+
+<br>
+
+> [!IMPORTANT]
+> Make sure you select the `AnimationPlayer` **inside `HeroCharacterModel`**.
+> Do not create a new AnimationPlayer just for the AnimationTree.
+
+<br>
+
+Now our AnimationTree is properly connected to the character's existing animation system.
+
+**Next, we can finally create our first animation state inside the State Machine.**
+
+<br><br>
